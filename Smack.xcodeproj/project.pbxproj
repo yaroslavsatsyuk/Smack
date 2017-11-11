@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		411572B49F336FE6434D50BB /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555EFBFBCA0DAF3F905AAB53 /* Pods_Smack.framework */; };
+		B80AC4691FB73DD3002C3CC7 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80AC4681FB73DD3002C3CC7 /* CircleImage.swift */; };
 		B818E6B01FA745000056F470 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B818E6AE1FA745000056F470 /* SWRevealViewController.m */; };
 		B818E6B51FA748B60056F470 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818E6B41FA748B60056F470 /* ChatVC.swift */; };
 		B818E6B71FA748CA0056F470 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B818E6B61FA748CA0056F470 /* ChannelVC.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		555EFBFBCA0DAF3F905AAB53 /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80AC4681FB73DD3002C3CC7 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		B818E6AD1FA744FF0056F470 /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		B818E6AE1FA745000056F470 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		B818E6AF1FA745000056F470 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				B8276DC31FA755EA00A76183 /* GradientView.swift */,
 				B875A2471FB612DE00718ECF /* RoundedButton.swift */,
 				B8EB6A191FB7162300ED166C /* AvatarCell.swift */,
+				B80AC4681FB73DD3002C3CC7 /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				B818E6B71FA748CA0056F470 /* ChannelVC.swift in Sources */,
 				B8EB6A181FB7117100ED166C /* AvatarPickerVC.swift in Sources */,
 				B875A2481FB612DE00718ECF /* RoundedButton.swift in Sources */,
+				B80AC4691FB73DD3002C3CC7 /* CircleImage.swift in Sources */,
 				B818E6B51FA748B60056F470 /* ChatVC.swift in Sources */,
 				B8EB6A161FB6FA4900ED166C /* UserDataService.swift in Sources */,
 				B8590F091FA879B100D02ED1 /* CreateAccountVC.swift in Sources */,
