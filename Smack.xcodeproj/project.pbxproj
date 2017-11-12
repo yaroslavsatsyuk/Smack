@@ -23,6 +23,8 @@
 		B875A2481FB612DE00718ECF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A2471FB612DE00718ECF /* RoundedButton.swift */; };
 		B888D6581FB8474400605B12 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B888D6561FB8474400605B12 /* ProfileVC.swift */; };
 		B888D6591FB8474400605B12 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B888D6571FB8474400605B12 /* ProfileVC.xib */; };
+		B891BD661FB8C95400F8DB5E /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891BD651FB8C95400F8DB5E /* MessageService.swift */; };
+		B891BD681FB8CA2000F8DB5E /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891BD671FB8CA2000F8DB5E /* Channel.swift */; };
 		B89704AB1FB4C8EB001589FA /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89704AA1FB4C8EB001589FA /* AuthServices.swift */; };
 		B8EB6A161FB6FA4900ED166C /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB6A151FB6FA4900ED166C /* UserDataService.swift */; };
 		B8EB6A181FB7117100ED166C /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EB6A171FB7117100ED166C /* AvatarPickerVC.swift */; };
@@ -50,6 +52,8 @@
 		B875A2471FB612DE00718ECF /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		B888D6561FB8474400605B12 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B888D6571FB8474400605B12 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		B891BD651FB8C95400F8DB5E /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		B891BD671FB8CA2000F8DB5E /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		B89704AA1FB4C8EB001589FA /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		B8EB6A151FB6FA4900ED166C /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		B8EB6A171FB7117100ED166C /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		B818E6B31FA748970056F470 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B891BD671FB8CA2000F8DB5E /* Channel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 			children = (
 				B8EB6A151FB6FA4900ED166C /* UserDataService.swift */,
 				B89704AA1FB4C8EB001589FA /* AuthServices.swift */,
+				B891BD651FB8C95400F8DB5E /* MessageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -319,7 +325,9 @@
 				B818E6B71FA748CA0056F470 /* ChannelVC.swift in Sources */,
 				B8EB6A181FB7117100ED166C /* AvatarPickerVC.swift in Sources */,
 				B875A2481FB612DE00718ECF /* RoundedButton.swift in Sources */,
+				B891BD681FB8CA2000F8DB5E /* Channel.swift in Sources */,
 				B80AC4691FB73DD3002C3CC7 /* CircleImage.swift in Sources */,
+				B891BD661FB8C95400F8DB5E /* MessageService.swift in Sources */,
 				B818E6B51FA748B60056F470 /* ChatVC.swift in Sources */,
 				B8EB6A161FB6FA4900ED166C /* UserDataService.swift in Sources */,
 				B8590F091FA879B100D02ED1 /* CreateAccountVC.swift in Sources */,
