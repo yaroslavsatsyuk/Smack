@@ -207,7 +207,7 @@
                                             <constraint firstAttribute="height" constant="30" id="mk8-aZ-8Yu"/>
                                         </constraints>
                                         <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3w-Z1-6AT">
@@ -233,17 +233,23 @@
                                     <action selector="createAccountBtnPressed:" destination="9UN-s6-bxI" eventType="touchUpInside" id="CJV-v3-2n8"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rpb-sc-sUy">
+                                <rect key="frame" x="169" y="145" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Kzn-aQ-ULY" firstAttribute="trailing" secondItem="9I8-uR-g8P" secondAttribute="trailing" constant="16" id="0lS-fF-kJC"/>
                             <constraint firstItem="VKD-3M-A0e" firstAttribute="top" secondItem="U04-JV-B7A" secondAttribute="bottom" constant="100" id="35h-u5-MYg"/>
+                            <constraint firstItem="rpb-sc-sUy" firstAttribute="centerY" secondItem="G8r-ed-NxM" secondAttribute="centerY" constant="-170" id="AON-EH-6pw"/>
                             <constraint firstItem="cTp-9O-lTD" firstAttribute="top" secondItem="VKD-3M-A0e" secondAttribute="bottom" constant="40" id="JxI-57-Y4Q"/>
                             <constraint firstItem="VKD-3M-A0e" firstAttribute="centerX" secondItem="G8r-ed-NxM" secondAttribute="centerX" id="Wuh-cb-wbU"/>
                             <constraint firstItem="9I8-uR-g8P" firstAttribute="top" secondItem="Kzn-aQ-ULY" secondAttribute="top" constant="8" id="Z8G-Hg-0hk"/>
                             <constraint firstItem="cTp-9O-lTD" firstAttribute="centerX" secondItem="G8r-ed-NxM" secondAttribute="centerX" id="bmO-t4-eNL"/>
                             <constraint firstItem="ZnG-9z-Fbc" firstAttribute="top" secondItem="cTp-9O-lTD" secondAttribute="bottom" id="mjR-4y-B7O"/>
                             <constraint firstItem="U04-JV-B7A" firstAttribute="top" secondItem="Kzn-aQ-ULY" secondAttribute="top" constant="60" id="uQu-4T-3HU"/>
+                            <constraint firstItem="rpb-sc-sUy" firstAttribute="centerX" secondItem="G8r-ed-NxM" secondAttribute="centerX" id="vBA-gF-h5X"/>
                             <constraint firstItem="ZnG-9z-Fbc" firstAttribute="centerX" secondItem="G8r-ed-NxM" secondAttribute="centerX" id="vav-wz-817"/>
                             <constraint firstItem="U04-JV-B7A" firstAttribute="centerX" secondItem="G8r-ed-NxM" secondAttribute="centerX" id="xeh-wS-aw8"/>
                         </constraints>
@@ -251,6 +257,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTxt" destination="MQg-mY-4NT" id="XHI-4K-Gu1"/>
+                        <outlet property="spinner" destination="rpb-sc-sUy" id="xBT-XO-QJw"/>
                         <outlet property="userNameTxt" destination="tsC-Dm-50f" id="7vm-1n-QIU"/>
                         <segue destination="jLx-9v-tTa" kind="show" identifier="toCreateAccount" id="fNR-tZ-8Sw"/>
                     </connections>
@@ -335,7 +342,7 @@
                                             <constraint firstAttribute="height" constant="30" id="q7I-zU-sfa"/>
                                         </constraints>
                                         <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEb-Vb-6tI">
