@@ -98,12 +98,12 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="xnS-Ui-up1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7p4-La-c34"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xnS-Ui-up1" secondAttribute="bottom" id="MuP-28-mtj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xnS-Ui-up1" secondAttribute="trailing" id="QhJ-pJ-5fi"/>
+                <constraint firstItem="xnS-Ui-up1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ivb-CO-wmt"/>
+                <constraint firstItem="xnS-Ui-up1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QNJ-kM-9xH"/>
                 <constraint firstItem="oT1-9b-yz9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="R50-nz-NDR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xnS-Ui-up1" secondAttribute="trailing" id="Udx-Kz-5kb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xnS-Ui-up1" secondAttribute="bottom" id="qzM-1q-HCv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oT1-9b-yz9" secondAttribute="trailing" constant="20" id="vEQ-8C-OJT"/>
-                <constraint firstItem="xnS-Ui-up1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="w5X-rv-dCN"/>
                 <constraint firstItem="oT1-9b-yz9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="xwh-ph-Uz9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
