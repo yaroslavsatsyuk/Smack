@@ -23,6 +23,7 @@
 		B875A2481FB612DE00718ECF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A2471FB612DE00718ECF /* RoundedButton.swift */; };
 		B888D6581FB8474400605B12 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B888D6561FB8474400605B12 /* ProfileVC.swift */; };
 		B888D6591FB8474400605B12 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B888D6571FB8474400605B12 /* ProfileVC.xib */; };
+		B88A0BA21FB9B26D0022F46E /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88A0BA11FB9B26D0022F46E /* ChannelCell.swift */; };
 		B891BD661FB8C95400F8DB5E /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891BD651FB8C95400F8DB5E /* MessageService.swift */; };
 		B891BD681FB8CA2000F8DB5E /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B891BD671FB8CA2000F8DB5E /* Channel.swift */; };
 		B89704AB1FB4C8EB001589FA /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89704AA1FB4C8EB001589FA /* AuthServices.swift */; };
@@ -52,6 +53,7 @@
 		B875A2471FB612DE00718ECF /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		B888D6561FB8474400605B12 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B888D6571FB8474400605B12 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		B88A0BA11FB9B26D0022F46E /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		B891BD651FB8C95400F8DB5E /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		B891BD671FB8CA2000F8DB5E /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		B89704AA1FB4C8EB001589FA /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B875A2471FB612DE00718ECF /* RoundedButton.swift */,
 				B8EB6A191FB7162300ED166C /* AvatarCell.swift */,
 				B80AC4681FB73DD3002C3CC7 /* CircleImage.swift */,
+				B88A0BA11FB9B26D0022F46E /* ChannelCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B888D6581FB8474400605B12 /* ProfileVC.swift in Sources */,
+				B88A0BA21FB9B26D0022F46E /* ChannelCell.swift in Sources */,
 				B818E6B71FA748CA0056F470 /* ChannelVC.swift in Sources */,
 				B8EB6A181FB7117100ED166C /* AvatarPickerVC.swift in Sources */,
 				B875A2481FB612DE00718ECF /* RoundedButton.swift in Sources */,

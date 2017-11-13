@@ -92,7 +92,8 @@ class AuthService {
                 self.userEmail = json["user"].stringValue
                 self.authToken = json["token"].stringValue
                 self.isLoggedIn = true
-//                print("User email: \(self.userEmail) User token: \(self.authToken)")
+//                print("User email: \(json["user"].stringValue) User token: \(json["token"].stringValue)")
+                print("User email: \(self.userEmail) User token: \(self.authToken)")
                 completion(true)
                 //                print(response.result.value as! String)
             } else {
@@ -133,7 +134,7 @@ class AuthService {
     func findUserByEmail(completion: @escaping CompletionHandler) {
         
         let header = [
-            "Authorization": "Bearer \(self.authToken)"
+            "Authorization": "Bearer \(AuthService.instance.authToken)"
         ]
         
         Alamofire.request(FIND_USER_BY_EMAIL + userEmail, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
@@ -142,7 +143,9 @@ class AuthService {
                 self.setUserInfo(data: data)
                 completion(true)
             } else {
+                print(self.authToken)
                 completion(false)
+                
             }
         }
     }
