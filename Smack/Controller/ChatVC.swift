@@ -31,7 +31,7 @@ class ChatVC: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
-        
+        print("user token: \(AuthService.instance.authToken)")
     }
     @objc func userDataDidChange() {
         if AuthService.instance.isLoggedIn {
@@ -48,16 +48,34 @@ class ChatVC: UIViewController {
     func updateWithChannel() {
         let channelName = MessageService.instance.selectedChannel?.name ?? ""
         channelNameLabel.text = "#\(channelName)"
+        getMessages()
     }
     
     func onLoginGetMessages() {
         MessageService.instance.findAllChannels { (success) in
             if success {
+                if MessageService.instance.channels.count > 0 {
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    self.updateWithChannel()
+                } else {
+                    self.channelNameLabel.text = "No channels yet"
+                }
                 print(MessageService.instance.channels)
             } else {
                 print("cannot find channels")
             }
         }
     }
+    
+    func getMessages() {
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        MessageService.instance.findAllMessangesForChannel(channelId: channelId) { (success) in
+            if success {
+                print("Try find messages")
+            }
+        }
+    }
+    
+    
     
 }
