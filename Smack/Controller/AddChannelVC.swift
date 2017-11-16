@@ -32,6 +32,17 @@ class AddChannelVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func createChannelButtonPressed(_ sender: Any) {
+        guard let description = descriptionLabel.text , descriptionLabel.text != "" else {return}
+        guard let name = userNameLabel.text , userNameLabel.text != "" else {return}
+        
+        SocketService.instance.addChannel(channelName: name, channelDescription: description) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+                print("Channel created ")
+            } else {
+                print("cannot create channel socket!")
+            }
+        }
         
     }
 }
