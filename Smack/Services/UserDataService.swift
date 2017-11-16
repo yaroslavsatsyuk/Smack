@@ -65,8 +65,7 @@ class UserDataService {
         AuthService.instance.authToken = ""
         AuthService.instance.userEmail = ""
         AuthService.instance.isLoggedIn = false
-        MessageService.instance.channels = []
-
+        MessageService.instance.channels.removeAll()
     }
  }
 
