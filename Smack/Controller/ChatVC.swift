@@ -14,9 +14,11 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var messageTxtField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
-    
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
+    @IBOutlet weak var whoTypesLabel: UILabel!
+    
+    var isTyping = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
@@ -28,6 +30,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
+        sendButton.isHidden = true
         tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         if AuthService.instance.isLoggedIn {
@@ -39,7 +42,43 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
-        print("user token: \(AuthService.instance.authToken)")
+        
+        SocketService.instance.getChatMessage { (success) in
+            if success {
+                self.tableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndexPath = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndexPath, at: .bottom, animated: false)
+                }
+            }
+        }
+        
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+            var names = ""
+            var numberOfTypers = 0
+            
+            for (typingUser, channel) in typingUsers {
+                if typingUser != UserDataService.instance.name && channel == channelId {
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names), \(typingUser)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+            
+            if numberOfTypers > 0 && AuthService.instance.isLoggedIn {
+                var verb = "is"
+                if numberOfTypers > 1 {
+                    verb = "are"
+                }
+                self.whoTypesLabel.text = "\(names) \(verb) typing a message"
+            } else {
+                self.whoTypesLabel.text = ""
+            }
+        }
     }
     
     @objc func userDataDidChange() {
@@ -47,6 +86,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             onLoginGetMessages()
         } else {
             channelNameLabel.text = "Please Log In"
+            tableView.reloadData()
         }
     }
     
@@ -71,6 +111,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 if success {
                     self.messageTxtField.text = ""
                     self.messageTxtField.resignFirstResponder()
+                    SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
                 }
             })
         }
@@ -98,6 +139,20 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if success {
                self.tableView.reloadData()
             }
+        }
+    }
+    @IBAction func messageBoxEditing(_ sender: Any) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        if messageTxtField.text == "" {
+            isTyping = false
+            sendButton.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
+        } else {
+            if isTyping == false {
+                sendButton.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
+            }
+            isTyping = true
         }
     }
     

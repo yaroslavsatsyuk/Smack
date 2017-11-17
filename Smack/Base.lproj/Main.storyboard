@@ -577,6 +577,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="messageBoxEditing:" destination="TpX-ii-QR6" eventType="editingChanged" id="DSY-YK-m2g"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I32-f9-gRf">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
@@ -644,6 +647,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnF-VG-NIn">
+                                <rect key="frame" x="8" y="621" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -657,8 +666,10 @@
                             <constraint firstItem="lxe-Om-RiB" firstAttribute="trailing" secondItem="5bT-Yn-bul" secondAttribute="trailing" id="Zrk-p3-PRF"/>
                             <constraint firstItem="xGZ-7i-oDU" firstAttribute="trailing" secondItem="lxe-Om-RiB" secondAttribute="trailing" id="j9j-dM-xoa"/>
                             <constraint firstItem="xGZ-7i-oDU" firstAttribute="top" secondItem="3p9-Vx-0a8" secondAttribute="top" id="lhN-Yu-LgE"/>
+                            <constraint firstItem="5bT-Yn-bul" firstAttribute="top" secondItem="DnF-VG-NIn" secondAttribute="bottom" constant="6" id="seM-q8-WxG"/>
                             <constraint firstItem="Ica-OV-3XI" firstAttribute="leading" secondItem="lxe-Om-RiB" secondAttribute="leading" id="vok-ee-Hvl"/>
                             <constraint firstItem="I32-f9-gRf" firstAttribute="centerY" secondItem="5bT-Yn-bul" secondAttribute="centerY" id="xsZ-Oj-0dH"/>
+                            <constraint firstItem="DnF-VG-NIn" firstAttribute="leading" secondItem="lxe-Om-RiB" secondAttribute="leading" constant="8" id="zcY-mD-bYj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lxe-Om-RiB"/>
                     </view>
@@ -666,7 +677,9 @@
                         <outlet property="channelNameLabel" destination="JMi-HN-eyL" id="fnm-hC-3pY"/>
                         <outlet property="menuBtn" destination="s8s-Uz-OmW" id="bn9-zz-LIy"/>
                         <outlet property="messageTxtField" destination="5bT-Yn-bul" id="ITI-Zv-i2f"/>
+                        <outlet property="sendButton" destination="I32-f9-gRf" id="OSN-ex-0r4"/>
                         <outlet property="tableView" destination="Ica-OV-3XI" id="Qhs-95-u86"/>
+                        <outlet property="whoTypesLabel" destination="DnF-VG-NIn" id="f9B-zQ-4HY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMn-l5-mrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
