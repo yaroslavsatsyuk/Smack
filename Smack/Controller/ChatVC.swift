@@ -19,6 +19,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var whoTypesLabel: UILabel!
     
     var isTyping = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.bindToKeyboard()
@@ -80,7 +81,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            if numberOfTypers > 0 && AuthService.instance.isLoggedIn {
+            if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true {
                 var verb = "is"
                 if numberOfTypers > 1 {
                     verb = "are"
