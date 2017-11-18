@@ -30,7 +30,6 @@ class UserDataService {
     }
     
     func returnUIColor(components: String) -> UIColor {
-//        "[0.482352941176471, 0.254901960784314, 0.83921568627451, 1]"
         let scanner = Scanner(string: components)
         let skipped = CharacterSet(charactersIn: "[], ")
         let comma = CharacterSet(charactersIn: ",")

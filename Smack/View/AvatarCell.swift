@@ -14,10 +14,9 @@ enum AvatarType {
 }
 
 class AvatarCell: UICollectionViewCell {
-    
+    //Outlets
     @IBOutlet weak var avatarImg: UIImageView!
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpView()
@@ -32,13 +31,8 @@ class AvatarCell: UICollectionViewCell {
             self.layer.backgroundColor = UIColor.gray.cgColor
         }
     }
-    
     func setUpView() {
-        
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
-    
-    
-    
 }

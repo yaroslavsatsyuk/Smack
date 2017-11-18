@@ -16,7 +16,6 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func closePressed(_ sender: Any) {
@@ -35,12 +34,6 @@ class LoginVC: UIViewController {
                 AuthService.instance.findUserByEmail() { (success) in
                     if success {
                         print("Logged In")
-//                        print("+++++++++++")
-//                        print(UserDataService.instance.avatarColor)
-//                        print("+++++++++++")
-//                        print(UserDataService.instance.name)
-//                        print("+++++++++++")
-//                        print(UserDataService.instance.avatarName)
                         NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                         self.dismiss(animated: true, completion: nil)
 

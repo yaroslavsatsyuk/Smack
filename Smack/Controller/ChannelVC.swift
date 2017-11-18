@@ -40,8 +40,6 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
-    
 
     @IBAction func addChannelButtonPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -80,12 +78,6 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func setUpUserInfo() {
         if AuthService.instance.isLoggedIn {
-//            print("+++++++++++")
-//            print(UserDataService.instance.avatarColor)
-//            print("+++++++++++")
-//            print(UserDataService.instance.name)
-//            print("+++++++++++")
-//            print(UserDataService.instance.avatarName)
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
             userImage.image = UIImage(named: UserDataService.instance.avatarName)
             userImage.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
@@ -97,8 +89,6 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             tableView.reloadData()
         }
     }
-    
-
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

@@ -43,7 +43,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             })
         }
-       
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
         
         SocketService.instance.getChatMessage { (newMessage) in
@@ -56,16 +56,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
-        
-//        SocketService.instance.getChatMessage { (success) in
-//            if success {
-//                self.tableView.reloadData()
-//                if MessageService.instance.messages.count > 0 {
-//                    let endIndexPath = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: endIndexPath, at: .bottom, animated: false)
-//                }
-//            }
-//        }
         
         SocketService.instance.getTypingUsers { (typingUsers) in
             guard let channelId = MessageService.instance.selectedChannel?.id else {return}
@@ -140,8 +130,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 } else {
                     self.channelNameLabel.text = "No channels yet"
                 }
-//                print(MessageService.instance.channels)
-                
             } else {
                 print("cannot find channels")
             }
@@ -152,7 +140,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         guard let channelId = MessageService.instance.selectedChannel?.id else {return}
         MessageService.instance.findAllMessangesForChannel(channelId: channelId) { (success) in
             if success {
-               self.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
     }

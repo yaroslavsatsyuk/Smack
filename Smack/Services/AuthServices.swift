@@ -26,11 +26,6 @@ class AuthService {
     
     var authToken: String {
         get {
-//            if let tokenKey = defaults.value(forKey: TOKEN_KEY) {
-//                return tokenKey as! String
-//            } else {
-//                return ""
-//            }
             return defaults.value(forKey: TOKEN_KEY) as! String
         }
         set {
@@ -57,7 +52,6 @@ class AuthService {
         ]
         
         Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER ).responseString { (response) in
-            
             if (response.result.error == nil) {
                 guard let data = response.data else {return}
                 let json = JSON(data: data)
@@ -84,23 +78,13 @@ class AuthService {
         Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER ).responseJSON { (response) in
             
             if (response.result.error == nil) {
-                //                if let json = response.result.value as? Dictionary<String, Any> {
-                //                    if let email = json["user"] as? String{
-                //                        self.userEmail = email
-                //                    }
-                //                    if let token = json["token"] as? String{
-                //                        self.authToken = token
-                //                    }
-                //                }
                 guard let data = response.data else {return}
                 let json = JSON(data: data)
                 self.userEmail = json["user"].stringValue
                 self.authToken = json["token"].stringValue
                 self.isLoggedIn = true
-//                print("User email: \(json["user"].stringValue) User token: \(json["token"].stringValue)")
                 print("Login: User email: \(self.userEmail) Login: User token: \(self.authToken)")
                 completion(true)
-                //                print(response.result.value as! String)
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)
@@ -155,13 +139,12 @@ class AuthService {
                 completion(true)
             } else {
                 completion(false)
-                
             }
         }
     }
     
     func setUserInfo(data: Data) {
-          let json = JSON(data)
+        let json = JSON(data)
         print("|||||||||||||||")
         print("json: \(json)")
         print("|||||||||||||||")
@@ -188,9 +171,6 @@ class AuthService {
         
         Alamofire.request("\(URL_PUT_NEW_NAME)\(userId)", method: .put, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil {
-//                guard let data = response.data else {return}
-//                let json = JSON(data)
-//                let message = json["message"].stringValue
                 completion(true)
             } else {
                 completion(false)

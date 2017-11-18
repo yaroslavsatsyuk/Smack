@@ -9,7 +9,7 @@
 import UIKit
 
 class AddChannelVC: UIViewController {
-
+    
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var descriptionLabel: UITextField!
     @IBOutlet weak var userNameLabel: UITextField!
@@ -17,7 +17,7 @@ class AddChannelVC: UIViewController {
         super.viewDidLoad()
         setUpView()
     }
-
+    
     func setUpView() {
         userNameLabel.attributedPlaceholder = NSAttributedString(string: "name", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceholder])
         descriptionLabel.attributedPlaceholder = NSAttributedString(string: "description", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceholder])
@@ -43,6 +43,5 @@ class AddChannelVC: UIViewController {
                 print("cannot create channel socket!")
             }
         }
-        
     }
 }

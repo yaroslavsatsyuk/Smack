@@ -45,7 +45,6 @@ class SocketService: NSObject {
     
     func addMessage(messageBody: String, userId: String, channelId: String, completion: @escaping CompletionHandler) {
         let user = UserDataService.instance
-        
         socket.emit("newMessage", messageBody, userId, channelId, user.name, user.avatarName, user.avatarColor)
         completion(true)
     }
@@ -61,13 +60,6 @@ class SocketService: NSObject {
             guard let timeStamp = dataArray[7] as? String else {return}
             let newMessage = Message(message: msgBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
             completion(newMessage)
-//            if channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn {
-//
-//                MessageService.instance.messages.append(newMessage)
-//                completion(true)
-//            } else {
-//                completion(false)
-//            }
         }
     }
     

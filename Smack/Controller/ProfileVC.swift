@@ -23,7 +23,6 @@ class ProfileVC: UIViewController {
     
     var isTyping = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
