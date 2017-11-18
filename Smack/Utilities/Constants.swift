@@ -20,6 +20,7 @@ let URL_ADD_USER = "\(BASE_URL)user/add"
 let FIND_USER_BY_EMAIL = "\(BASE_URL)/user/byEmail/"
 let URL_GET_CHANNELS = "\(BASE_URL)channel"
 let URL_GET_MESSAGES = "\(BASE_URL)message/byChannel/"
+let URL_PUT_NEW_NAME = "\(BASE_URL)user/"
 
 //Segues
 
@@ -33,6 +34,7 @@ let TO_AVATAR_PICKER = "toAvatarPicker"
 let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
 let NOTIF_CHANNELS_LOADED = Notification.Name("channelsLoaded")
 let NOTIF_CHANNEL_SELECTED = Notification.Name("channelSelected")
+let NOTIF_USER_CHANGE_NAME = Notification.Name("userChangeName")
 
 // User Defaults
 let TOKEN_KEY = "token"

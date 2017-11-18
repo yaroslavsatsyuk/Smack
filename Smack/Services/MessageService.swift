@@ -27,7 +27,7 @@ class MessageService {
                     //                    } catch let error {
                     //                        debugPrint(error as Any)
                     //                    }
-                    print("JSON: \(String(describing: JSON(data).array))" )
+//                    print("JSON: \(String(describing: JSON(data).array))" )
                     if let json = JSON(data).array {
                         for item in json {
                             let name = item["name"].stringValue
@@ -66,7 +66,7 @@ class MessageService {
                             self.messages.append(message)
                         }
                     }
-                    print(self.messages)
+//                    print(self.messages)
                     completion(true)
                 }
             } else {

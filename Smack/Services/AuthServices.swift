@@ -98,7 +98,7 @@ class AuthService {
                 self.authToken = json["token"].stringValue
                 self.isLoggedIn = true
 //                print("User email: \(json["user"].stringValue) User token: \(json["token"].stringValue)")
-                print("User email: \(self.userEmail) User token: \(self.authToken)")
+                print("Login: User email: \(self.userEmail) Login: User token: \(self.authToken)")
                 completion(true)
                 //                print(response.result.value as! String)
             } else {
@@ -145,10 +145,15 @@ class AuthService {
         Alamofire.request(FIND_USER_BY_EMAIL + userEmail, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if (response.result.error == nil) {
                 guard let data = response.data else {return}
+                print("|||||||||||||||")
+                print("data: \(data)")
+                print("|||||||||||||||")
+                print("|||||||||||||||")
+                print("TOKEN: \(AuthService.instance.authToken)")
+                print("|||||||||||||||")
                 self.setUserInfo(data: data)
                 completion(true)
             } else {
-                print(self.authToken)
                 completion(false)
                 
             }
@@ -157,12 +162,41 @@ class AuthService {
     
     func setUserInfo(data: Data) {
           let json = JSON(data)
+        print("|||||||||||||||")
+        print("json: \(json)")
+        print("|||||||||||||||")
         let id = json["_id"].stringValue
         let email = json["email"].stringValue
         let name = json["name"].stringValue
         let avatarName = json["avatarName"].stringValue
         let avatarColor = json["avatarColor"].stringValue
+        print("|||||||||||||||")
+        print("name: \(name)")
+        print("|||||||||||||||")
         UserDataService.instance.setUserData(id: id, avatarColor: avatarColor, avatarName: avatarName, email: email, name: name)
+    }
+    
+    func updateUserName(userId: String, newName: String, completion: @escaping CompletionHandler) {
+        let body = [
+            "name":newName
+        ]
+        
+        let header = [
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer \(AuthService.instance.authToken)"
+        ]
+        
+        Alamofire.request("\(URL_PUT_NEW_NAME)\(userId)", method: .put, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+//                guard let data = response.data else {return}
+//                let json = JSON(data)
+//                let message = json["message"].stringValue
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
     }
 }
 

@@ -38,10 +38,12 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             AuthService.instance.findUserByEmail(completion: { (success) in
                 if success {
                     NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+                    print("Token:"+AuthService.instance.authToken)
+                    print("Id:"+UserDataService.instance.id)
                 }
             })
         }
-        
+       
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
         
         SocketService.instance.getChatMessage { (newMessage) in
@@ -138,7 +140,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 } else {
                     self.channelNameLabel.text = "No channels yet"
                 }
-                print(MessageService.instance.channels)
+//                print(MessageService.instance.channels)
+                
             } else {
                 print("cannot find channels")
             }

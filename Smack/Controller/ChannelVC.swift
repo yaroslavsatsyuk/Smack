@@ -23,6 +23,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsIsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userChangeName(_:)), name: NOTIF_USER_CHANGE_NAME, object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -69,15 +70,26 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
     
+    @objc func userChangeName(_ notif: Notification) {
+        loginButton.setTitle(UserDataService.instance.name, for: .normal)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         setUpUserInfo()
     }
     
     func setUpUserInfo() {
         if AuthService.instance.isLoggedIn {
+//            print("+++++++++++")
+//            print(UserDataService.instance.avatarColor)
+//            print("+++++++++++")
+//            print(UserDataService.instance.name)
+//            print("+++++++++++")
+//            print(UserDataService.instance.avatarName)
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
             userImage.image = UIImage(named: UserDataService.instance.avatarName)
             userImage.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+            self.tableView.reloadData()
         } else {
             loginButton.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
@@ -85,6 +97,8 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             tableView.reloadData()
         }
     }
+    
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
