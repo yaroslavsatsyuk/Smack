@@ -27,3 +27,5 @@ A chatting app featuring real-time messaging, using MongoDB as database and Hero
 <li>Used SWRevealViewController to display a sliding view controller as the main menu.<br/></li>
 </ul>
 
+### Preview 
+<a href="https://imgur.com/tvhPRL9"><img src="https://i.imgur.com/tvhPRL9.gif" title="source: imgur.com" /></a>
